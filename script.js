@@ -1,9 +1,96 @@
 // Wrap all code that interacts with the DOM in a call to jQuery to ensure that
 // the code isn't run until the browser has finished rendering all the elements
 // in the html.
+
+
+// where we send the buttons from the loop
+var timeBlockList = $("#time-block-list");
+
+//  ?? = array.length
+var timeBlockIndex = '';
+
+var array = [
+  { 
+    hour:"9am",
+    // text:textArea
+  },
+
+  { 
+    hour:"10am",
+    // text:textArea
+  },
+
+  { 
+    hour:"11am",
+    // text:textArea
+  },
+
+  { 
+    hour:"12pm",
+    // text:textArea
+  },
+
+  { 
+    hour:"1pm",
+    // text:textArea
+  },
+
+  { 
+    hour:"2pm",
+    // text:textArea
+  },
+
+  { 
+    hour:"3pm",
+    // text:textArea
+  },
+
+  { 
+    hour:"4pm",
+    // text:textArea
+  },
+
+
+];
+
 $(document).ready(function(){
 
   $(function () {
+
+
+    console.log(this);
+
+
+      for(var i = 0; i < array.length; i++) {
+
+        var timeBlock = $("<div/>", {
+            "id":"hour_" + [i],
+            "class":"row time-block past"
+        });
+        var hourCount = $("<div/>", {
+            "class":"col-2 col-md-1 hour text-center py-3"
+            // set text cotent to [i].hour
+        });
+        var textArea = $("<textarea/>", {
+            "class":"col-8 col-md-10 description",
+            "row":"3"
+            // check localstorage if null "", else fill in?
+        });
+        var saveButton = $("<button/>", {
+            "class":"btn saveBtn col-2 col-md-1",
+            "aria-hidden":"true"
+        });
+        var faSave = $("<i/>", {
+            "class":"fas fa-save",
+            "aria-hidden":"true"
+        });
+
+        $("savebutton").append("faSave");
+        $("timeBlock").append("hourCount", "textArea", "button");
+        $("timeBlocklist").append("timeBlock");
+      
+      };
+    
   // TODO: Add a listener for click events on the save button. This code should
   // use the id in the containing time-block as a key to save the user input in
   // local storage. HINT: What does `this` reference in the click listener
