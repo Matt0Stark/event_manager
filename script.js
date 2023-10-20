@@ -57,37 +57,61 @@ $(document).ready(function(){
 
   $(function () {
 
-
+    console.log(array);
     console.log(this);
 
 
       for(var i = 0; i < array.length; i++) {
+        
+        $(timeBlockList).append(
+          $("<div></div>").addClass("row time-block past").append(
+            $("<div/>", {
+              "class":"col-2 col-md-1 hour text-center py-3",
+              // set text cotent to [i].hour
+            }),
+            $("<textarea/>", {
+              "class":"col-8 col-md-10 description",
+              "row":"3"
+              // check localstorage if null "", else fill in?
+            }),
+            $("<button/>", {
+              "class":"btn saveBtn col-2 col-md-1",
+              "aria-hidden":"true"
+            }).append(
+                $("<i/>", {
+                  "class":"fas fa-save",
+                  "aria-hidden":"true"
+                })
+              )
+         ));
 
-        var timeBlock = $("<div/>", {
-            "id":"hour_" + [i],
-            "class":"row time-block past"
-        });
-        var hourCount = $("<div/>", {
-            "class":"col-2 col-md-1 hour text-center py-3"
-            // set text cotent to [i].hour
-        });
-        var textArea = $("<textarea/>", {
-            "class":"col-8 col-md-10 description",
-            "row":"3"
-            // check localstorage if null "", else fill in?
-        });
-        var saveButton = $("<button/>", {
-            "class":"btn saveBtn col-2 col-md-1",
-            "aria-hidden":"true"
-        });
-        var faSave = $("<i/>", {
-            "class":"fas fa-save",
-            "aria-hidden":"true"
-        });
 
-        $("savebutton").append("faSave");
-        $("timeBlock").append("hourCount", "textArea", "button");
-        $("timeBlocklist").append("timeBlock");
+
+        // var timeBlock = $("<div/>", {
+        //     "id":"hour_" + [i],
+        //     "class":"row time-block past"
+        // });
+        // var hourCount = $("<div/>", {
+        //     "class":"col-2 col-md-1 hour text-center py-3"
+        //     // set text cotent to [i].hour
+        // });
+        // var textArea = $("<textarea/>", {
+        //     "class":"col-8 col-md-10 description",
+        //     "row":"3"
+        //     // check localstorage if null "", else fill in?
+        // });
+        // var saveButton = $("<button/>", {
+        //     "class":"btn saveBtn col-2 col-md-1",
+        //     "aria-hidden":"true"
+        // });
+        // var faSave = $("<i/>", {
+        //     "class":"fas fa-save",
+        //     "aria-hidden":"true"
+        // });
+
+        // $("savebutton").append("faSave");
+        // $("timeBlock").append("hourCount", "textArea", "button");
+        // // $("#time-block-list").append("timeBlock");
       
       };
     
