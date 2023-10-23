@@ -48,8 +48,14 @@ $(document).ready(function () {
 
 
   ];
+ 
 
-  var today = dayjs();
+  // dayjs.extend(timezone);
+  // var today = dayjs().tz("America/Minneapolis")
+
+  // invalid date
+  var today = dayjs().format('DD/MM/YYYY');
+  $("#currentDay").text(today);
   console.log(today)
   console.log(array);
   console.log(this);
@@ -64,7 +70,9 @@ $(document).ready(function () {
     console.log(array[i])
     var hourIndex = array[i].hour
     // hour daata needs to load nothing if null, else localStorage.getItem
+
     var hourData
+
     const currentHour = $(`
       <div id="hour-${hourIndex}" class="row time-block ">
         <div class="col-2 col-md-1 hour text-center py-3">${hourIndex}</div>
@@ -80,7 +88,7 @@ $(document).ready(function () {
   };
   
   function hourUpdate(){
-    var currentTime = dayjs().hour(12);
+    var currentTime = dayjs().hour();
     $(".time-block").each( function(){
       var blockHour= parseInt($(this).attr("id").split("-")[1]);
       console.log(currentTime);
